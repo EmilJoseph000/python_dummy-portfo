@@ -25,15 +25,15 @@ def write_to_csv(data):
         email = data['email']
         subject = data['subject']
         message = data['message']
-        csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)       
         csv_writer.writerow([email,subject,message])        
 
-@app.route('/submit_form_', methods=['POST', 'GET'])
+@app.route('/submit_form_', methods=['POST', 'GET'])                                 
 def submit_form():
     if request.method == 'POST':
-        data = request.form.to_dict()
+        data = request.form.to_dict()                                 
         write_to_csv(data)
-        print(data)
+        print(data) 
         return redirect('/thankyou.html')
     else:
-        return 'something went wrong'
+        return 'something went wrong'                             
